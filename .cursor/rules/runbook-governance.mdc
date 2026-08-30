@@ -1,0 +1,6 @@
+---
+description: Preserve exact procedures and validated resolution history
+alwaysApply: true
+---
+
+Use `/memory/runbooks/` for exact commands, paths, changes, results, validation, caveats, and related blockers when reproducibility matters. Update an existing domain runbook instead of creating duplicates.

@@ -1,0 +1,10 @@
+---
+description: Simple, surgical, assumption-aware, verifiable coding behavior
+alwaysApply: true
+---
+
+Before coding, inspect existing patterns and define success evidence. Use the simplest implementation that satisfies the active plan. Make surgical changes and avoid speculative abstractions or unrelated refactors.
+
+Do not stop for minor reversible ambiguity: choose the safest reasonable assumption, record it, and continue. Ask only for the strict blockers and consequential decisions defined in `/AGENTS.md`.
+
+Loop until the strongest available tests, type checks, lint, build, migration, runtime, and direct inspections pass or the exact limitation is recorded.

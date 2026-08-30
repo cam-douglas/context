@@ -1,0 +1,6 @@
+---
+description: Concise durable memory and detailed continuation separation
+alwaysApply: true
+---
+
+Keep `/memory/MEMORY.md` limited to durable directives, stable decisions, high-level architecture, and canonical links. Append substantive operational work to the current UTC-day continuation file under `/memory/memories/`. Never store secret values.

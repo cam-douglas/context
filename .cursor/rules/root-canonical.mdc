@@ -1,0 +1,8 @@
+---
+description: Canonical precedence, autonomy, and continuity directives
+alwaysApply: true
+---
+
+`/AGENTS.md` is the canonical workspace operating contract. Follow its instruction precedence, autonomy limits, phased project lifecycle, file-role boundaries, validation standard, and completion standard.
+
+Do not leave durable rules only in chat. Do not defer agent-capable work to the user. Do not store secret values in agent files. Preserve current state and unresolved evidence before context loss.

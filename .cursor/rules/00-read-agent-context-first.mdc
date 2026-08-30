@@ -1,0 +1,10 @@
+---
+description: Mandatory session bootstrap and per-turn agent-context read contract
+alwaysApply: true
+---
+
+On every new user message that requires substantive work, first read `/AGENTS.md`, then read its complete core per-turn set before any other tool or substantive response.
+
+At the beginning of a new agent session, read `/BOOTSTRAP.md` and run read-only `node .cursor/skills/launch-pipeline/scripts/preflight.mjs` before project work. Run `/scripts/bootstrap.sh` only after Build or explicit Agent-mode implementation authorization.
+
+Session-start reads do not satisfy later turns. A pure acknowledgment with no tools or project consequence is the only exception.

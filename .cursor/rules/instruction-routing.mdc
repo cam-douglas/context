@@ -1,0 +1,6 @@
+---
+description: Activate detailed instruction files through INSTRUCTIONS.md
+alwaysApply: true
+---
+
+Read `/INSTRUCTIONS.md` every substantive turn. Load only instruction files whose activation conditions match the request or are listed in `STATE.md`. Load `/instructions/ROLES.md` for specialist selection, delegation, workstream routing, or stage gates; do not load its full body for trivial single-role work. Register future instruction files in the index rather than expanding always-on rules.

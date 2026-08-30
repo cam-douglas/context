@@ -1,0 +1,19 @@
+name: agent-governance
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node .cursor/skills/launch-pipeline/scripts/preflight.mjs
+      - run: node --test .cursor/hooks/policy.test.mjs
+      - run: node --test .cursor/skills/launch-pipeline/scripts/preflight.test.mjs
+      - run: node .cursor/scripts/validate-agent-config.mjs
+      - run: node .cursor/skills/launch-pipeline/scripts/validate-launch.mjs

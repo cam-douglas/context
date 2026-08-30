@@ -1,0 +1,6 @@
+---
+description: Maintain stable repeatable procedures as indexed skills
+alwaysApply: true
+---
+
+Use `/SKILLS.md` as the registry and `/skills/<skill-id>/SKILL.md` for stable, reusable, outcome-tested procedures. Keep experimental or one-off history in runbooks until it is reliable enough to promote.

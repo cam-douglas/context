@@ -1,0 +1,10 @@
+{
+  "autoRun": {
+    "allow_instructions": [
+      "Allow repository reads, ordinary source and documentation edits, local tests, linting, type checks, builds, read-only Git inspection, feature-branch staging, preview deployments, and creation of local migration files when they stay within the approved task scope."
+    ],
+    "block_instructions": [
+      "Require review or block access to secret-bearing files, destructive Git/history operations, force pushes, production deployments, remote database or infrastructure mutations, state-changing MCP tools, delegated production actions, and any modification or deletion of protected agent-governance and enforcement files."
+    ]
+  }
+}

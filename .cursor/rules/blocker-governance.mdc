@@ -1,0 +1,6 @@
+---
+description: Track unresolved blockers by problem domain
+alwaysApply: true
+---
+
+Use one file per unresolved domain under `/memory/blockers/`. Record symptoms, evidence, attempts, files, unknowns, next actions, and resolution criteria. Move a blocker to `blockers-fixed/` only after resolution is verified; do not repeat failed attempts without new evidence.

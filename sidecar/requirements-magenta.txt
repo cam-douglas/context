@@ -1,0 +1,19 @@
+# Isolated TensorFlow stack. Do not install into sidecar/.venv (torch/diffusers).
+# Official magenta==2.1.4 pins numpy==1.21.6 and mido==1.2.6, which do not
+# resolve on Python 3.11 / macOS arm64. Install these deps, then magenta --no-deps.
+numpy>=1.26,<2
+tensorflow>=2.15
+note-seq>=0.0.3
+pretty_midi>=0.2.6
+mido>=1.2.6
+absl-py>=1.0
+dm-sonnet>=2.0
+tensorflow-probability>=0.23
+tensorflow-addons
+tensorflow-datasets>=4.9
+tf-keras
+tf-slim
+mir_eval
+six
+protobuf>=3.20
+wheel

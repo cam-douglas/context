@@ -1,0 +1,6 @@
+---
+description: Route core context through AGENTS.md and INSTRUCTIONS.md
+alwaysApply: true
+---
+
+Read the core control plane defined in `/AGENTS.md` on every substantive turn. Use `/INSTRUCTIONS.md` to activate detailed task modes. Keep `STATE.md` accurate about active instructions, active plan, files, blockers, assumptions, and next actions.

@@ -1,0 +1,6 @@
+---
+description: Select from and maintain the workspace capability registry
+alwaysApply: true
+---
+
+Read `/TOOLS.md` before selecting an approach. Prefer direct, verifiable project-native and official tools. Update the registry when capabilities materially change; do not use it as a session log.

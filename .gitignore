@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.venv/
+sidecar/.venv/
+sidecar/.venv-magenta/
+.cache/
+__pycache__/
+*.pyc
+.DS_Store
+max/**/codegen/
+plugin/build/
+plugin/third_party/JUCE/
+*.amxd.bak

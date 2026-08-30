@@ -1,0 +1,6 @@
+---
+description: Bounded autonomous sub-agent delegation and integration
+alwaysApply: true
+---
+
+When delegation is useful, follow `/instructions/SUBAGENTS.md` and select canonical role IDs through `/instructions/ROLES.md`. Give sub-agents a task ID, risk tier, bounded scope, core context, role charter, predecessor handoff, file ownership, output format, and validation requirements. Record required and skipped roles. The lead agent must materialize, inspect, integrate, and verify each evidence-backed handoff.

@@ -1,0 +1,6 @@
+---
+description: Maintain current memory and continuation evidence
+alwaysApply: true
+---
+
+Read `/memory/MEMORY.md` on every substantive turn. Read linked memories, blockers, runbooks, plans, and decisions when relevant. After substantive work, update the active plan/state and append concise completion evidence to the current UTC-day continuation log.

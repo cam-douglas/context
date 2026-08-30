@@ -1,0 +1,6 @@
+---
+description: Maintain resumable state and preserve context before loss
+alwaysApply: true
+---
+
+Keep `/STATE.md` current with objective, status, phase, active plan, active instructions, files, blockers, attempts, decisions, assumptions, working state, and next actions. Compact important context before phase transitions, long tasks, multiple attempts, or likely context loss.

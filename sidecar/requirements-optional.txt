@@ -1,0 +1,19 @@
+# Local stack used by compose/analysis/DSP. MusicGen/SAO use transformers/diffusers.
+# Demucs is optional; CLAP uses transformers (laion/clap-htsat-unfused), not laion_clap.
+librosa>=0.10
+scipy>=1.11
+numpy>=1.26
+soundfile>=0.12
+pedalboard>=0.9
+mido>=1.3
+pretty_midi>=0.2.10
+music21>=9.0
+note-seq>=0.0.5
+pydub>=0.25
+pyroomacoustics>=0.7
+diffusers>=0.32
+accelerate>=1.0
+einops>=0.8
+torchsde>=0.2
+demucs>=4.0
+dawdreamer>=0.8
