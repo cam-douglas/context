@@ -16,8 +16,8 @@ updated_at: 2026-09-01T18:25:00Z
 - Method: unittest + source inspect
 - Exact command or tool: `python3 -m unittest train.tests.test_musicgen_lora_wrapper -v`
 - Artifact, path, source, or stable reference: `train/remote/submit-musicgen-lora.sh`, `train/scripts/musicgen-lora-musicbench.py` `UV_WITH`
-- Sanitized result and exit status: 16 tests OK (after submit whoami harden: re-run below)
-- Timestamp: 2026-09-01T18:20:00Z
+- Sanitized result and exit status: 16 tests OK after submit whoami harden
+- Timestamp: 2026-09-01T18:26:00Z
 - Environment: Cursor Cloud VM, Python 3.12.3, branch `cursor/musicgen-lora-pinned-e355`
 - Limitations: Pins are source-verified, not installed on this VM
 - Required follow-up: Job image must install the same `--with` list
@@ -86,7 +86,7 @@ updated_at: 2026-09-01T18:25:00Z
 - Method: env inspect; temp `huggingface_hub` whoami; no Job create
 - Exact command or tool: `echo token_len`; `hf auth whoami` via `/tmp/hf-cli-pkgs` (not sidecar/.venv)
 - Artifact, path, source, or stable reference: this file
-- Sanitized result and exit status: `HF_TOKEN` unset; `hf auth whoami` -> `Not logged in`; `huggingface_hub.whoami()` -> `LocalTokenNotFoundError`. No Job id.
+- Sanitized result and exit status: `HF_TOKEN` unset; `hf auth whoami` -> `Not logged in`; `huggingface_hub.whoami()` -> `LocalTokenNotFoundError`. `PATH=/tmp/hf-cli-pkgs/bin bash train/remote/submit-musicgen-lora.sh` -> `BLOCKED: missing HF_TOKEN` exit 2. No Job id.
 - Timestamp: 2026-09-01T18:24:00Z
 - Environment: Cursor Cloud VM `bc-e013bf6c-d9f3-4a7f-a17c-d4232193e355`
 - Limitations: Cannot submit, inspect, or confirm Hub files without a token
