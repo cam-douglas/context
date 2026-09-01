@@ -4,9 +4,9 @@ task_id: 20260901-musicgen-musicbench-lora
 title: MusicGen-small LoRA on MusicBench via Hugging Face Jobs
 source_request: SETUP and SUBMIT a Hugging Face Job that fine-tunes facebook/musicgen-small with LoRA on amaai-lab/MusicBench. GPU work on HF Jobs only.
 owner: user-operator
-status: engineering
+status: blocked
 created_at: 2026-09-01T11:45:00Z
-updated_at: 2026-09-01T11:45:00Z
+updated_at: 2026-09-01T11:50:00Z
 revision: 1
 objective: Submit a detached HF Job that trains a private LoRA adapter for facebook/musicgen-small on MusicBench, without downloading the 17 GB archive or training on this Cloud VM or the owner Mac.
 scope: train/ job wrapper and launch notes; workstream evidence; one HF Jobs submit --detach
@@ -61,7 +61,7 @@ Non-goals: download MusicBench on this VM or the owner Mac; train here; sidecar/
 |---|---|---|---|---|
 | `product-manager-subagent` | skipped | Owner already decided host, dataset, method, budget, and adapter naming | skipped | n/a |
 | `ui-ux-developer-subagent` | skipped | No UI | skipped | n/a |
-| `software-engineer-subagent` | required | Job script + submit | in_progress | |
+| `software-engineer-subagent` | required | Job script + submit | blocked | BLOCKED |
 | `security-engineer-subagent` | required by Tier 3 | Token forwarding + private Hub write; lead must run after this handoff | pending | |
 | `growth-marketing-subagent` | skipped | No launch or claims | skipped | n/a |
 | `project-lead-subagent` | required by Tier 3 | Reconciliation after Security | pending | |
@@ -95,4 +95,4 @@ Routing decision owner: software-engineer-subagent (delegated start; owner autho
 
 ## 15. Closure
 
-Engineering completes when the Job is SCHEDULING/RUNNING or the block/error is evidenced. Do not wait for COMPLETED.
+Engineering **BLOCKED: missing HF_TOKEN**. Wrapper and launch notes are on the branch. No Job id. Do not wait for COMPLETED.
