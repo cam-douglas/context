@@ -4,7 +4,7 @@ task_id: 20260901-musicgen-musicbench-lora
 title: MusicGen-small LoRA on MusicBench via Hugging Face Jobs
 source_request: Persist stock musicgen-small. Submit a pinned HF Job that trains a private LoRA adapter on MusicBench. Do not apply the adapter. Do not download MusicBench.tar.gz on the Cloud VM or owner Mac.
 owner: user-operator
-status: in_progress
+status: blocked
 created_at: 2026-09-01T11:45:00Z
 updated_at: 2026-09-01T18:10:00Z
 revision: 2
@@ -49,7 +49,7 @@ Out: MusicBench tar on this VM or owner Mac; sidecar/.venv; persist apply; ACE-S
 |---|---|---|---|---|
 | `product-manager-subagent` | skipped | Owner already decided host, dataset, method, budget, adapter naming, persist-stock | skipped | n/a |
 | `ui-ux-developer-subagent` | skipped | train/ only; ASCII plugin/UI rule does not apply here | skipped | n/a |
-| `software-engineer-subagent` | required | Wrapper, pins, tests, Job submit | in_progress | |
+| `software-engineer-subagent` | required | Wrapper, pins, tests, Job submit | blocked | BLOCKED |
 | `security-engineer-subagent` | required by Tier 3 | Token forwarding + private Hub write | pending | |
 | `growth-marketing-subagent` | skipped | No launch or claims | skipped | n/a |
 | `project-lead-subagent` | required by Tier 3 | Reconciliation after Security | pending | |
@@ -125,4 +125,4 @@ Owner authorized HF Jobs LoRA on MusicBench (2026-09-01). Persist apply is not a
 
 ## 15. Closure
 
-Open until Job COMPLETED + Hub adapter weights, or an evidenced token/402 block.
+Engineering **BLOCKED: missing HF_TOKEN**. Wrapper, pins, tests, and draft PR are on `cursor/musicgen-lora-pinned-e355`. No Job id. Do not claim COMPLETED.

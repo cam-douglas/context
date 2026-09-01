@@ -58,8 +58,11 @@ class WrapperContractTests(unittest.TestCase):
         self.assertIn("--flavor a10g-large", self.submit)
         self.assertIn("--timeout 16h", self.submit)
         self.assertIn("STOP: hf jobs create returned 402", self.submit)
+        self.assertIn("BLOCKED: missing HF_TOKEN", self.submit)
+        self.assertIn("not logged in", self.submit)
         self.assertNotIn("echo \"$HF_TOKEN\"", self.submit)
         self.assertNotIn("print(HF_TOKEN)", self.submit)
+        self.assertNotIn("hf auth token", self.submit)
 
     def test_no_in_place_dreamboothing_patch(self):
         banned = (

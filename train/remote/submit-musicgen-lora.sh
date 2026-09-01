@@ -10,12 +10,22 @@ if ! command -v hf >/dev/null 2>&1; then
   exit 2
 fi
 
-if ! hf auth whoami >/dev/null 2>&1; then
+# hf auth whoami can print "Not logged in" and still exit 0.
+WHOAMI_TEXT="$(hf auth whoami 2>&1 || true)"
+if printf '%s\n' "$WHOAMI_TEXT" | grep -qi 'not logged in'; then
   echo "BLOCKED: missing HF_TOKEN" >&2
   exit 2
 fi
 
-USER_NAME="$(hf auth whoami --format json 2>/dev/null | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d.get("name") or "")')"
+USER_NAME="$(
+  python3 -c 'from huggingface_hub import whoami; print(whoami().get("name") or "")' 2>/dev/null \
+    || true
+)"
+if [ -z "$USER_NAME" ]; then
+  echo "BLOCKED: missing HF_TOKEN" >&2
+  exit 2
+fi
+
 echo "hub_user=${USER_NAME}"
 echo "adapter_repo=${USER_NAME}/context-musicgen-small-musicbench-lora"
 echo "flavor=a10g-large timeout=16h est_max_usd=24"
@@ -41,10 +51,12 @@ hf jobs uv run --detach \
 status=$?
 set -e
 
+if [ "$status" -eq 402 ]; then
+  echo "STOP: hf jobs create returned 402" >&2
+  exit 402
+fi
+
 if [ "$status" -ne 0 ]; then
   echo "ERROR: hf jobs create exited ${status}" >&2
-  if [ "$status" -eq 402 ]; then
-    echo "STOP: hf jobs create returned 402" >&2
-  fi
   exit "$status"
 fi
