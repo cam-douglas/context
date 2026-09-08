@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Owner uses only **Context 14**.
+- Persist stays stock. Poll Hugging Face Job `6a9f9c85259f8e97255ee0b7` until COMPLETED/ERROR/CANCELED. Do not apply persist. Do not submit jobs.
 
 ## Current Status
 
-- Active generator is **audioldm2**. Typed request leads the generate prompt. Stop works during generate. Apply only keeps a clip when the prompt still matches.
+- Live poller on `6a9f9c85259f8e97255ee0b7` every 120s (`tmux hf-job-6a9f9c`). This VM has no Hub login, so inspect/logs/adapter checks stay 401 until a token appears. Persist/plugin untouched. Prior Job `6a9f97ec` prepared 600 rows then trainer saw `num_samples=0` because dreamboothing uses strict `min < duration < max` (`max=9s`) and clips were truncated to exactly 9s. This Job writes 8s clips.
 
 ## Project Phase
 
@@ -66,6 +66,7 @@
 
 ## Open Blockers
 
+- `.cursor/memory/blockers/hf-job-monitor-missing-token.md`
 - `.cursor/memory/blockers/live-harness-apply-inert.md` (Max path; superseded as primary host)
 
 ## Attempts Performed
@@ -81,12 +82,12 @@
 
 ## Current Working State
 
-- Waveform drag starts after a short move. Drop on Reference sets the next reference. Drag outside the plugin sends a stable WAV into Live.
+- HF Job monitor artifacts: `/tmp/hf-job-6a9f9c85259f8e97255ee0b7/` (tmux `hf-job-6a9f9c`). Adapter target `cam-douglas/context-musicgen-small-stage-a-caption-lora`. Persist/plugin untouched.
 
 ## Next Actions
 
-- Owner: delete leftover Context 13 from the track and add **Context 14**. Type a new prompt, then Audition. Stop works while it is still generating.
+- Poll Job `6a9f9c85259f8e97255ee0b7` every 120s. On ERROR return the real exception plus last useful log lines. On COMPLETED confirm `adapter_model.safetensors`. Do not apply persist.
 
 ## Last Updated
 
-- 2026-08-30 — Context 14: prompt-led generate; Stop during preview; Apply only keeps a matching clip.
+- 2026-09-08 — Monitor Job `6a9f9c85259f8e97255ee0b7` (8s clips after duration-filter miss); still auth gated.
