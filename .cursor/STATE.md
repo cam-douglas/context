@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Owner uses only **Context 14**.
+- Persist stays stock. Persistent monitor for HF Job `6a9f8be6259f8e97255eddce` (Stage A caption LoRA retry after `6a9f83aa` OOMKilled). Do not apply persist. Do not start Stage B. Do not submit another Job.
 
 ## Current Status
 
-- Active generator is **audioldm2**. Typed request leads the generate prompt. Stop works during generate. Apply only keeps a clip when the prompt still matches.
+- Polling Job `6a9f8be6259f8e97255eddce` every 120s. This VM has no Hub login (`hf auth whoami` not logged in; API 401). Adapter target `cam-douglas/context-musicgen-small-stage-a-caption-lora`. Persist stock.
 
 ## Project Phase
 
@@ -66,6 +66,7 @@
 
 ## Open Blockers
 
+- `.cursor/memory/blockers/hf-job-6a9f8be-monitor.md`
 - `.cursor/memory/blockers/live-harness-apply-inert.md` (Max path; superseded as primary host)
 
 ## Attempts Performed
@@ -81,12 +82,12 @@
 
 ## Current Working State
 
-- Waveform drag starts after a short move. Drop on Reference sets the next reference. Drag outside the plugin sends a stable WAV into Live.
+- HF Job monitor artifacts: `/tmp/hf-job-6a9f8be/` (tmux `hf-job-6a9f8be`). Persist/plugin untouched.
 
 ## Next Actions
 
-- Owner: delete leftover Context 13 from the track and add **Context 14**. Type a new prompt, then Audition. Stop works while it is still generating.
+- Stay on Job `6a9f8be6259f8e97255eddce` until COMPLETED/ERROR/CANCELED. On COMPLETED verify `adapter_model.safetensors`. On ERROR/CANCELED return last 30 useful log lines. Do not apply persist.
 
 ## Last Updated
 
-- 2026-08-30 — Context 14: prompt-led generate; Stop during preview; Apply only keeps a matching clip.
+- 2026-09-08 — Persistent monitor for replacement Stage A Job `6a9f8be`; still auth gated.
