@@ -12,6 +12,7 @@
 
 - 2026-09-08T03:50:08Z poll 1 on abandoned Job: `token_present=false`, CLI not logged in, API 401, page login wall.
 - 2026-09-08T04:17:31Z `hf jobs list --namespace cam-douglas --name context-musicgen-stage-a-caption-lora` after 60s wait: 401.
+- 2026-09-08T18:18:33Z TIMEOUT after 416 polls / 14h. `job_id` stayed null. Adapter `model_info` 401.
 - Same personal environment previously recorded `BLOCKED: missing HF_TOKEN` on sibling MusicGen LoRA submit agents.
 
 ## Attempts
@@ -32,10 +33,8 @@
 
 ## Next actions
 
-1. Discover newest Job named `context-musicgen-stage-a-caption-lora`; never watch `6a9f83aa259f8e97255edca6`.
-2. Poll every 120s until COMPLETED/ERROR/CANCELED or 14h TIMEOUT. On ERROR ping with log tail.
-3. If a token appears, inspect JSON, collect logs, and check `adapter_model.safetensors` without applying the adapter.
-4. Do not start Stage B. Do not set `CONTEXT_MUSICGEN_ADAPTER`. Persist stays stock.
+1. Inject `HF_TOKEN` (never print it). Then `hf jobs list --namespace cam-douglas --name context-musicgen-stage-a-caption-lora --all`.
+2. Inspect the newest ID. On ERROR collect log tail. On COMPLETED check `adapter_model.safetensors`. Do not apply persist. Do not start Stage B.
 
 ## Resolution criteria
 
