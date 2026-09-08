@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Owner uses only **Context 14**.
+- Persist stays stock. Monitor Hugging Face Job `6a9f83aa259f8e97255edca6` until COMPLETED/ERROR/CANCELED (or 14h TIMEOUT). Do not start Stage B. Do not set `CONTEXT_MUSICGEN_ADAPTER`.
 
 ## Current Status
 
-- Active generator is **audioldm2**. Typed request leads the generate prompt. Stop works during generate. Apply only keeps a clip when the prompt still matches.
+- Cloud monitor running. Job/adapter are private; this VM has no `HF_TOKEN`, so inspect is 401/login-walled. Poll every 120s. Active generator remains **audioldm2** on the owner Mac.
 
 ## Project Phase
 
@@ -66,6 +66,7 @@
 
 ## Open Blockers
 
+- `.cursor/memory/blockers/hf-job-monitor-missing-token.md`
 - `.cursor/memory/blockers/live-harness-apply-inert.md` (Max path; superseded as primary host)
 
 ## Attempts Performed
@@ -81,12 +82,12 @@
 
 ## Current Working State
 
-- Waveform drag starts after a short move. Drop on Reference sets the next reference. Drag outside the plugin sends a stable WAV into Live.
+- HF Job monitor artifacts: `/tmp/hf-job-monitor/` (tmux `hf-job-monitor`). Persist/plugin untouched.
 
 ## Next Actions
 
-- Owner: delete leftover Context 13 from the track and add **Context 14**. Type a new prompt, then Audition. Stop works while it is still generating.
+- Stay on the 120s poll until a terminal Job stage. If token appears, verify adapter files and do not apply them. If ERROR with a one-line obvious fix, document first; prefer returning the failure over silent resubmit.
 
 ## Last Updated
 
-- 2026-08-30 — Context 14: prompt-led generate; Stop during preview; Apply only keeps a matching clip.
+- 2026-09-08 — Cloud monitor for Job `6a9f83aa259f8e97255edca6`; auth gated; persist stock.
