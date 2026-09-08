@@ -5,3 +5,4 @@
 - `hf` CLI installed to `~/.local/bin` (huggingface_hub 1.30.0). No Hub login on this VM. Poll 1: CLI not logged in, API 401, job page login wall, adapter 401.
 - Durable poller running in tmux session `hf-job-6a9f8be` (`python3 /tmp/hf-job-6a9f8be/monitor.py`), interval 120s.
 - Blocker: `.cursor/memory/blockers/hf-job-6a9f8be-monitor.md`.
+- Terminal: Job `6a9f8be6259f8e97255eddce` CANCELED with 0 usable rows (parent-confirmed). 46 polls over ~91 min stayed AUTH_GATED (API 401). `adapter_model.safetensors` not confirmed. Persist not applied. No Stage B. No Job submitted. NEXT=diagnose.

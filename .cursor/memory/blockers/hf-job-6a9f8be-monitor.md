@@ -1,5 +1,9 @@
 # Blocker: HF Job 6a9f8be monitor cannot authenticate
 
+## Status
+
+**Terminal for this Job:** CANCELED with 0 usable rows (parent-confirmed). Official Hub inspect/logs remain 401 on this VM.
+
 ## Symptoms
 
 - Persistent monitor for Job `6a9f8be6259f8e97255eddce` cannot inspect stage from this Cloud VM.
@@ -40,3 +44,7 @@
 ## Resolution criteria
 
 - Authenticated `hf jobs inspect` returns a terminal stage, or a terminal stage is otherwise evidenced, and the required STAGE/JOB/ADAPTER_PUSHED/ERROR_SUMMARY/NEXT block is produced.
+
+## Outcome
+
+- 2026-09-08T06:03Z: STAGE=CANCELED. Parent: canceled; 0 usable rows. Official logs unavailable (401). ADAPTER_PUSHED=unknown. NEXT=diagnose.

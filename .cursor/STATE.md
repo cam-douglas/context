@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Persist stays stock. Persistent monitor for HF Job `6a9f8be6259f8e97255eddce` (Stage A caption LoRA retry after `6a9f83aa` OOMKilled). Do not apply persist. Do not start Stage B. Do not submit another Job.
+- Persist stays stock. HF Job `6a9f8be6259f8e97255eddce` reached terminal CANCELED (0 usable rows). Do not apply persist. Do not start Stage B. Do not submit another Job.
 
 ## Current Status
 
-- Polling Job `6a9f8be6259f8e97255eddce` every 120s. This VM has no Hub login (`hf auth whoami` not logged in; API 401). Adapter target `cam-douglas/context-musicgen-small-stage-a-caption-lora`. Persist stock.
+- Job `6a9f8be6259f8e97255eddce` CANCELED with 0 usable rows (parent-confirmed). Official Hub inspect/logs/adapter stayed 401. Persist stock.
 
 ## Project Phase
 
@@ -82,12 +82,12 @@
 
 ## Current Working State
 
-- HF Job monitor artifacts: `/tmp/hf-job-6a9f8be/` (tmux `hf-job-6a9f8be`). Persist/plugin untouched.
+- Monitor for Job `6a9f8be6259f8e97255eddce` finished: STAGE=CANCELED. Artifacts in `/tmp/hf-job-6a9f8be/`. Persist/plugin untouched.
 
 ## Next Actions
 
-- Stay on Job `6a9f8be6259f8e97255eddce` until COMPLETED/ERROR/CANCELED. On COMPLETED verify `adapter_model.safetensors`. On ERROR/CANCELED return last 30 useful log lines. Do not apply persist.
+- Diagnose the 0-usable-row cancel (duration/row-append path). Do not apply persist. Do not start Stage B from this monitor.
 
 ## Last Updated
 
-- 2026-09-08 — Persistent monitor for replacement Stage A Job `6a9f8be`; still auth gated.
+- 2026-09-08 — Job `6a9f8be` CANCELED (0 usable rows); official Hub inspect 401.
