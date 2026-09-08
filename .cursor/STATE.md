@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Owner uses only **Context 14**.
+- Persist stays stock. Stopped watch of canceled Job `6a9f8be6259f8e97255eddce` (0 usable rows). Poll Job `6a9f8e93e686246ca69a9f00` only until COMPLETED/ERROR/CANCELED. Do not apply persist. Do not submit jobs.
 
 ## Current Status
 
-- Active generator is **audioldm2**. Typed request leads the generate prompt. Stop works during generate. Apply only keeps a clip when the prompt still matches.
+- Live poller on `6a9f8e93e686246ca69a9f00` every 120s (`tmux hf-job-6a9f8e93`). This VM has no Hub login, so inspect/logs/adapter checks stay 401 until a token appears. Persist/plugin untouched.
 
 ## Project Phase
 
@@ -66,6 +66,7 @@
 
 ## Open Blockers
 
+- `.cursor/memory/blockers/hf-job-monitor-missing-token.md`
 - `.cursor/memory/blockers/live-harness-apply-inert.md` (Max path; superseded as primary host)
 
 ## Attempts Performed
@@ -81,12 +82,12 @@
 
 ## Current Working State
 
-- Waveform drag starts after a short move. Drop on Reference sets the next reference. Drag outside the plugin sends a stable WAV into Live.
+- HF Job monitor artifacts: `/tmp/hf-job-6a9f8e93/` (tmux `hf-job-6a9f8e93`). Never watching `6a9f8be6259f8e97255eddce`. Persist/plugin untouched.
 
 ## Next Actions
 
-- Owner: delete leftover Context 13 from the track and add **Context 14**. Type a new prompt, then Audition. Stop works while it is still generating.
+- Poll Job `6a9f8e93e686246ca69a9f00` every 120s. On ERROR return redacted log tail. On COMPLETED check `adapter_model.safetensors` on `cam-douglas/context-musicgen-small-stage-a-caption-lora`. Do not apply persist.
 
 ## Last Updated
 
-- 2026-08-30 — Context 14: prompt-led generate; Stop during preview; Apply only keeps a matching clip.
+- 2026-09-08 — Retargeted monitor to Job `6a9f8e93e686246ca69a9f00`; canceled-job watch stopped; still auth gated.
