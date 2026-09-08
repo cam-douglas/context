@@ -28,16 +28,15 @@
 
 ## Unknowns
 
-- Whether `HF_TOKEN` will be injected later into this run.
-- Current remote Job stage (SCHEDULING/RUNNING/COMPLETED/ERROR/CANCELED).
+- Official Hub JSON/log tail for `6a9f8e93` (still 401).
+- Whether `adapter_model.safetensors` exists on the private adapter repo.
 
 ## Next actions
 
 1. Never watch `6a9f8be6259f8e97255eddce`.
-2. Poll `6a9f8e93e686246ca69a9f00` every 120s until COMPLETED/ERROR/CANCELED or 14h TIMEOUT.
-3. If a token appears, inspect JSON, collect ERROR log tail, and check `adapter_model.safetensors` without applying the adapter.
-4. Do not submit jobs. Do not apply persist.
+2. Job `6a9f8e93` is parent-confirmed ERROR; do not keep polling it.
+3. Do not submit jobs. Do not apply persist.
 
 ## Resolution criteria
 
-- Authenticated `hf jobs inspect` returns a terminal stage, or 14h TIMEOUT is recorded with last useful evidence.
+- Monitor closed on parent-confirmed ERROR. Official inspect remains 401 until a token is injected.

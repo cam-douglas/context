@@ -6,7 +6,7 @@
 
 ## Current Status
 
-- Live poller on `6a9f8e93e686246ca69a9f00` every 120s (`tmux hf-job-6a9f8e93`). This VM has no Hub login, so inspect/logs/adapter checks stay 401 until a token appears. Persist/plugin untouched.
+- Job `6a9f8e93e686246ca69a9f00` is parent-confirmed ERROR: `rows.append` sat after `continue`, so clips were never kept. Official Hub inspect/log tail still 401 on this VM. Persist/plugin untouched. Poller stopped.
 
 ## Project Phase
 
@@ -86,8 +86,8 @@
 
 ## Next Actions
 
-- Poll Job `6a9f8e93e686246ca69a9f00` every 120s. On ERROR return redacted log tail. On COMPLETED check `adapter_model.safetensors` on `cam-douglas/context-musicgen-small-stage-a-caption-lora`. Do not apply persist.
+- None for Job `6a9f8e93`. Do not apply persist. Do not submit jobs from this agent.
 
 ## Last Updated
 
-- 2026-09-08 — Retargeted monitor to Job `6a9f8e93e686246ca69a9f00`; canceled-job watch stopped; still auth gated.
+- 2026-09-08 — Job `6a9f8e93` parent-confirmed ERROR (rows.append after continue). Official logs 401.
