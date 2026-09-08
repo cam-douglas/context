@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Persist stays stock. Monitor Hugging Face Job `6a9f83aa259f8e97255edca6` until COMPLETED/ERROR/CANCELED (or 14h TIMEOUT). Do not start Stage B. Do not set `CONTEXT_MUSICGEN_ADAPTER`.
+- Persist stays stock. Stopped Job `6a9f83aa259f8e97255edca6` (ERROR OOMKilled 137). Poll newest running `context-musicgen-stage-a-caption-lora` for `cam-douglas` until COMPLETED/ERROR/CANCELED. Do not start Stage B. Do not set `CONTEXT_MUSICGEN_ADAPTER`.
 
 ## Current Status
 
-- Cloud monitor running. Job/adapter are private; this VM has no `HF_TOKEN`, so inspect is 401/login-walled. Poll every 120s. Active generator remains **audioldm2** on the owner Mac.
+- Switched off the OOM Job. Replacement Stage A Job is being submitted by the parent. This VM still has no `HF_TOKEN`, so `hf jobs list --name context-musicgen-stage-a-caption-lora` is 401. Discover/poll every 120s. Persist stock.
 
 ## Project Phase
 
@@ -86,8 +86,8 @@
 
 ## Next Actions
 
-- Stay on the 120s poll until a terminal Job stage. If token appears, verify adapter files and do not apply them. If ERROR with a one-line obvious fix, document first; prefer returning the failure over silent resubmit.
+- Discover newest `context-musicgen-stage-a-caption-lora` Job ID (never `6a9f83aa`). Poll 120s. On ERROR ping with log tail. On COMPLETED verify `adapter_model.safetensors`. Do not apply persist.
 
 ## Last Updated
 
-- 2026-09-08 — Cloud monitor for Job `6a9f83aa259f8e97255edca6`; auth gated; persist stock.
+- 2026-09-08 — Abandoned Job `6a9f83aa` OOMKilled 137; retargeted to replacement Stage A Job by name; still auth gated.
