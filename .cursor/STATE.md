@@ -90,4 +90,4 @@
 
 ## Last Updated
 
-- 2026-09-08 — Monitor Job `6a9f9c85259f8e97255ee0b7` (8s clips after duration-filter miss); still auth gated.
+- 2026-09-08 — Monitor Job `6a9f9c85259f8e97255ee0b7` (8s clips after duration-filter miss); 304 polls / 9h46m still auth gated.

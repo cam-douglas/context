@@ -10,6 +10,7 @@
 ## Evidence
 
 - 2026-09-08T05:31:30Z poll 0: `auth=False`, `error=no_token`, job/adapter HTTP 401.
+- 2026-09-08T15:17:46Z: 304 polls over 9h46m, every poll `no_token`. Job and adapter APIs still 401. No DONE file.
 - Gmail searches for this id and `from:huggingface.co newer_than:2d` returned no threads.
 - Slack search for this id returned no messages.
 - Sibling monitors for `6a9f97ec`, `6a9f8e93`, `6a9f8be`, and `6a9f83aa` hit the same missing-token wall.
