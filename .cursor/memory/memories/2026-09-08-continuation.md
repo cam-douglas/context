@@ -6,3 +6,4 @@
 - Blocker: `.cursor/memory/blockers/hf-job-monitor-missing-token.md`.
 - Parent reported Job `6a9f83aa259f8e97255edca6` ERROR OOMKilled (exit 137) during dreamboothing preprocess of 1400 full-length tracks. Monitor stopped that ID.
 - Replacement Stage A Job named `context-musicgen-stage-a-caption-lora` is being submitted. Poller retargeted to discover newest matching Job for `cam-douglas`. `hf jobs list` after 60s still 401 (no `HF_TOKEN`). Persist stock; no Stage B.
+- 2026-09-08T18:18:33Z monitor TIMEOUT after 14h / 416 polls. Job ID never discovered. Adapter `model_info` 401. No persist apply. No Stage B. NEXT=diagnose/resubmit (need `HF_TOKEN` then list/inspect).

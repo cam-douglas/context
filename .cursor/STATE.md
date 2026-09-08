@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Persist stays stock. Stopped Job `6a9f83aa259f8e97255edca6` (ERROR OOMKilled 137). Poll newest running `context-musicgen-stage-a-caption-lora` for `cam-douglas` until COMPLETED/ERROR/CANCELED. Do not start Stage B. Do not set `CONTEXT_MUSICGEN_ADAPTER`.
+- Persist stays stock. Stage A monitor ended TIMEOUT. Do not start Stage B. Do not set `CONTEXT_MUSICGEN_ADAPTER`.
 
 ## Current Status
 
-- Switched off the OOM Job. Replacement Stage A Job is being submitted by the parent. This VM still has no `HF_TOKEN`, so `hf jobs list --name context-musicgen-stage-a-caption-lora` is 401. Discover/poll every 120s. Persist stock.
+- Monitor TIMEOUT after 14h. Abandoned `6a9f83aa` (OOMKilled 137). Replacement `context-musicgen-stage-a-caption-lora` never discovered: 416 polls, no `HF_TOKEN`, `hf jobs list` stayed 401. Persist stock. No Stage B.
 
 ## Project Phase
 
@@ -86,8 +86,8 @@
 
 ## Next Actions
 
-- Discover newest `context-musicgen-stage-a-caption-lora` Job ID (never `6a9f83aa`). Poll 120s. On ERROR ping with log tail. On COMPLETED verify `adapter_model.safetensors`. Do not apply persist.
+- Inject `HF_TOKEN` into this environment, then `hf jobs list --namespace cam-douglas --name context-musicgen-stage-a-caption-lora --all` and inspect the newest ID. Do not apply persist. Do not start Stage B.
 
 ## Last Updated
 
-- 2026-09-08 — Abandoned Job `6a9f83aa` OOMKilled 137; retargeted to replacement Stage A Job by name; still auth gated.
+- 2026-09-08 — Stage A monitor TIMEOUT: replacement Job ID unknown; 14h of 120s polls auth-gated; persist stock.

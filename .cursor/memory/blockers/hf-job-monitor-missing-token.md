@@ -27,8 +27,8 @@
 
 ## Unknowns
 
-- Whether `HF_TOKEN` will be injected later into this run.
-- Current remote Job stage (SCHEDULING/RUNNING/COMPLETED/ERROR/CANCELED).
+- Replacement Job ID and stage after parent resubmit (never visible from this VM).
+- Whether the replacement later COMPLETED or ERROR'd on the Hub.
 
 ## Next actions
 
