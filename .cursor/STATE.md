@@ -6,7 +6,7 @@
 
 ## Current Status
 
-- Live poller on `6a9f9c85259f8e97255ee0b7` every 120s (`tmux hf-job-6a9f9c`). This VM has no Hub login, so inspect/logs/adapter checks stay 401 until a token appears. Persist/plugin untouched. Prior Job `6a9f97ec` prepared 600 rows then trainer saw `num_samples=0` because dreamboothing uses strict `min < duration < max` (`max=9s`) and clips were truncated to exactly 9s. This Job writes 8s clips.
+- 14h monitor of Job `6a9f9c85259f8e97255ee0b7` ended `timeout_14h`. 420 tmux polls plus extras, all `no_token` / HTTP 401. Stage, exception, logs, and `adapter_model.safetensors` were never readable. Persist/plugin untouched. Prior Job `6a9f97ec` prepared 600 rows then trainer saw `num_samples=0` because dreamboothing uses strict `min < duration < max` (`max=9s`) and clips were truncated to exactly 9s. This Job writes 8s clips.
 
 ## Project Phase
 
@@ -86,8 +86,8 @@
 
 ## Next Actions
 
-- Poll Job `6a9f9c85259f8e97255ee0b7` every 120s. On ERROR return the real exception plus last useful log lines. On COMPLETED confirm `adapter_model.safetensors`. Do not apply persist.
+- Inspect Job `6a9f9c85259f8e97255ee0b7` from a Hub-logged-in session. On ERROR return the real exception plus last useful log lines. On COMPLETED confirm `adapter_model.safetensors`. Do not apply persist. Do not submit jobs.
 
 ## Last Updated
 
-- 2026-09-08 — Monitor Job `6a9f9c85259f8e97255ee0b7` (8s clips after duration-filter miss); 304 polls / 9h46m still auth gated.
+- 2026-09-08 — Job `6a9f9c85259f8e97255ee0b7` monitor ended `timeout_14h` with no Hub login; stage unknown.

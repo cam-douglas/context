@@ -10,7 +10,8 @@
 ## Evidence
 
 - 2026-09-08T05:31:30Z poll 0: `auth=False`, `error=no_token`, job/adapter HTTP 401.
-- 2026-09-08T15:17:46Z: 304 polls over 9h46m, every poll `no_token`. Job and adapter APIs still 401. No DONE file.
+- 2026-09-08T15:17:46Z: 304 polls over 9h46m, every poll `no_token`. Job and adapter APIs still 401.
+- 2026-09-08T19:31:50Z: tmux poller wrote DONE `timeout_14h` after poll 420. Final once-poll 19:33:11Z still `no_token`. Job and adapter APIs still 401. Gmail still empty for this id.
 - Gmail searches for this id and `from:huggingface.co newer_than:2d` returned no threads.
 - Slack search for this id returned no messages.
 - Sibling monitors for `6a9f97ec`, `6a9f8e93`, `6a9f8be`, and `6a9f83aa` hit the same missing-token wall.
@@ -33,8 +34,8 @@
 
 ## Next actions
 
-1. Poll `6a9f9c85259f8e97255ee0b7` every 120s until COMPLETED/ERROR/CANCELED or 14h TIMEOUT.
-2. If a token appears, inspect JSON, collect ERROR exception + log tail, and check `adapter_model.safetensors` without applying the adapter.
+1. 14h TIMEOUT recorded. Remote stage remains unknown from this VM.
+2. Inspect from a Hub-logged-in session: job JSON, ERROR exception + log tail, and `adapter_model.safetensors` without applying the adapter.
 3. Do not submit jobs. Do not apply persist.
 
 ## Resolution criteria
