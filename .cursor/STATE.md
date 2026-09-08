@@ -2,11 +2,11 @@
 
 ## Current Objective
 
-- Persist stays stock. Poll Hugging Face Job `6a9f97ece686246ca69a9fff` until COMPLETED/ERROR/CANCELED. Do not apply persist. Do not submit jobs.
+- Persist stays stock. Job `6a9f97ece686246ca69a9fff` is terminal ERROR (parent-confirmed). Do not apply persist. Do not submit jobs.
 
 ## Current Status
 
-- Live poller on `6a9f97ece686246ca69a9fff` every 120s (`tmux hf-job-6a9f97`). This VM has no Hub login, so inspect/logs/adapter checks stay 401 until a token appears. Persist/plugin untouched. Prior Job `6a9f8e93e686246ca69a9f00` ERROR'd because successful clips were never appended (`rows.append` after `continue`). This Job has that fix.
+- Parent-confirmed ERROR on `6a9f97ece686246ca69a9fff`: prepared 600 rows, then trainer `num_samples=0` because dreamboothing uses strict `min < duration < max` (max=9s) and clips were truncated to exactly 9s. Official inspect/log tail still 401 on this VM. Replacement Job `6a9f9c85259f8e97255ee0b7` (8s clips) is watched by another agent. Persist/plugin untouched.
 
 ## Project Phase
 
@@ -82,12 +82,12 @@
 
 ## Current Working State
 
-- HF Job monitor artifacts: `/tmp/hf-job-6a9f97ece686246ca69a9fff/` (tmux `hf-job-6a9f97`). Adapter target `cam-douglas/context-musicgen-small-stage-a-caption-lora`. Persist/plugin untouched.
+- HF Job `6a9f97ece686246ca69a9fff` terminal ERROR (duration filter). Artifacts: `/tmp/hf-job-6a9f97ece686246ca69a9fff/`. Adapter check 401. Persist/plugin untouched.
 
 ## Next Actions
 
-- Poll Job `6a9f97ece686246ca69a9fff` every 120s. On ERROR return redacted log tail. On COMPLETED confirm `adapter_model.safetensors`. Do not apply persist.
+- Do not apply persist. Do not submit jobs. Replacement 8s-clip Job `6a9f9c85259f8e97255ee0b7` is already assigned to another monitor.
 
 ## Last Updated
 
-- 2026-09-08 — Monitor Job `6a9f97ece686246ca69a9fff` (rows.append fix); still auth gated.
+- 2026-09-08 — Job `6a9f97ece686246ca69a9fff` ERROR: 600 rows prepared, trainer num_samples=0 (exact 9s vs strict max=9s).
