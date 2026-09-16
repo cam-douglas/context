@@ -40,7 +40,7 @@
 
 - `/instructions/PROJECT_PLANNING.md`
 - `/instructions/ROLES.md`
-- `/instructions/LAUCH.md`
+- `/instructions/LAUNCH.md`
 
 ## Active Items
 
